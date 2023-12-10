@@ -1,0 +1,8 @@
+{
+  "name": ".",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:KimonArisV/quiz_react.git",
+  "author": "Kimon Vogt <kvogt@g.harvard.edu>",
+  "license": "MIT"
+}
