@@ -32,6 +32,12 @@ Quiz created on React using Create-React-App.
 - Instead of <code> npm install</code>, use <code> yarn install</code>.
 - Instead of <code> npm start</code>, use <code> yarn start</code>.
 - Instead of <code> npm run build</code>, use<code>  yarn run build</code>.
+- Instead of <code> npm start</code>, use<code>  yarn start</code>.
+
+### Note: 
+- yarn add : adds a package to use in your current package. 
+- yarn init : initializes the development of a package. 
+- yarn install : installs all the dependencies defined in a package.
 
 # Additional Tips:
 
@@ -42,6 +48,8 @@ Quiz created on React using Create-React-App.
 <code>yarn import</code>
 
 ### This command will generate a <code>yarn.lock</code> file based on your existing <code>package-lock.json</code>
+
+#### [Nice intro to yarn](https://flaviocopes.com/yarn/#initialize-a-new-project)
 
 
 
