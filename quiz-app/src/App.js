@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <div id="first-page-container">
-        {!startGame ? <StarterPage SetStartGame={()=>setstartGame(true)} /> : <QuizPage />}
+        {!startGame ? <StarterPage SetStartGame={()=>setstartGame(true)} /> : <QuizPage startGame={startGame} />}
       </div>
     </div>
   );
