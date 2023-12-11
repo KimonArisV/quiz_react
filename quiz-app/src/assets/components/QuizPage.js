@@ -10,7 +10,7 @@ export default function QuizPage() {
     return(
         <div>
             {questionList}
-            <button>?Check Answers:Play Again</button>
+            <button id="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>{isAnswersVisible ? "Check Answers" : "Play Again"}</button>
         </div>
     )
 }
