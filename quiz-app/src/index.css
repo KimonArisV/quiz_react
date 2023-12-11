@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+/* starting button design */
 #startGameButton {
   display: inline-block;
   padding: 10px 20px;
@@ -26,7 +27,27 @@ code {
   background-color: #3498db;
   transition: background-color 0.3s ease;
 }
-
 #startGameButton:hover {
   background-color: #2980b9;
+}
+
+/* starting instructions design */
+#instructions {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  line-height: 1.5;
+  font-family: 'Fira Sans', sans-serif;
+
+}
+
+/* title design */
+#intro-title {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Helvetica Neue',sans-serif;;
+  color: #333;
+  margin-bottom: 20px;
 }
