@@ -1,7 +1,6 @@
 
-export default function QuestionBolck() {
-    console.log("hello")
+export default function QuestionBlock(props) {
     return(
-        <h2>hello question block</h2>
+        <h2>{props.data.question}</h2>
     )
 }
