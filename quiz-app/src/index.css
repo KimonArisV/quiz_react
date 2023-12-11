@@ -104,3 +104,30 @@ code {
   background: linear-gradient(to right, #40517a, #ff6b6b);
 }
 
+/* put the repsonses into a flex container adn direction row */
+#multipleChoise{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* and the flex items */
+.buttonChoices{
+  padding: 10px;
+  border: 2px solid rgb(91, 93, 91);
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #333;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.buttonChoices:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}
+.buttonChoices:active {
+  background-color: #4caf50; /* Change background color when clicked */
+  color: #fff; /* Change text color when clicked */
+}
+
