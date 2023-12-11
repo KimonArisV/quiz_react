@@ -34,15 +34,16 @@ code {
   text-decoration: none;
   font-size: 1.7rem;
   cursor: pointer;
-  border: 2px solid #3498db;
+  border: 2px solid #ff6b6b;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #3498db;
+  /* background-color: #3498db; */
   transition: background-color 0.3s ease;
   align-self: center; 
+  background: linear-gradient(to right, #ff6b6b, #556270);
 }
 #startGameButton:hover {
-  background-color: #2980b9;
+  background: linear-gradient(to right, #40517a, #ff6b6b);
 }
 
 /* starting instructions design */
@@ -87,7 +88,7 @@ code {
 }
 
 /* styling the check answers button  */
-#CheckAnswerButton {
+.CheckAnswerButton {
   background: linear-gradient(to right, #ff6b6b, #556270);
   color: #fff; /* Text color set to white for contrast */
   padding: 10px 20px;
@@ -99,7 +100,7 @@ code {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#CheckAnswerButton:hover {
+.CheckAnswerButton:hover {
   background: linear-gradient(to right, #40517a, #ff6b6b);
 }
 
