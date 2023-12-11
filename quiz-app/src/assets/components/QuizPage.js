@@ -22,7 +22,9 @@ export default function QuizPage() {
     return(
         <div>
             {questionList}
-            <button id="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>{isAnswersVisible ? "Check Answers" : "Play Again"}</button>
+            <button id="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>
+                {isAnswersVisible ? "Check Answers" : "Play Again"}
+            </button>
         </div>
     )
 }
