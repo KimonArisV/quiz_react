@@ -4,7 +4,9 @@ import {nanoid} from "nanoid";
 
 export default function QuizPage() {
 
-    const [questionList, setquestionList] = useState( Array(5).fill().map(() => <QuestionBolck key={nanoid()} />) );
+    //function for the creation of components fo answers:
+    const createQuestions = () => <QuestionBolck key={nanoid()} />;
+    const [questionList, setquestionList] = useState( Array(5).fill().map(createQuestions) );
     const [isAnswersVisible, setisAnswersVisible] = useState(false);
 
     useEffect(
