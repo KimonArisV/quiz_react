@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import StarterPage from "./assets/components/StarterPage";
+import QuizPage from "./assets/components/QuizPage";
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <div id="first-page-container">
-        {!startGame ? <StarterPage SetStartGame={()=>setstartGame(true)} /> : "hello world"}
+        {!startGame ? <StarterPage SetStartGame={()=>setstartGame(true)} /> : <QuizPage />}
       </div>
     </div>
   );
