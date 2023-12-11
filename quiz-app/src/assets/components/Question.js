@@ -1,4 +1,5 @@
-//import Choices from "./assets/components/Choises";
+import Choise from "./Choises";
+import {nanoid} from "nanoid";
 
 //initialize the decoder
 const he = require("he");
@@ -9,6 +10,8 @@ export default function QuestionBlock(props) {
     const allPossibleAnswersDecoded = allPossibleAnswers.map(element=>he.decode(element));
     const shuffledArray = _.shuffle(allPossibleAnswersDecoded);
 
+    const choisesArray = shuffledArray.map(element=> < Choise key={nanoid()} oneMutliChoisesData={element} />);
+
 
     //const ChoisesArray = < Choises mutliChoisesData={props.} />; 
     console.log(shuffledArray)
@@ -16,7 +19,7 @@ export default function QuestionBlock(props) {
         <div>
             <p className="question"> {he.decode(props.data.question)} </p>
             <div id="multipleChoise">
-                {/* {Choises1} */}
+                {choisesArray}
             </div>
         </div>
     )
