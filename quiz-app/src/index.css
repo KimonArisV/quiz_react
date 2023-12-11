@@ -80,3 +80,8 @@ code {
   align-items: center;
   box-sizing: border-box;
 }
+
+#quiz-container{
+  max-width: 100vw;
+  height: 100vh;
+}
