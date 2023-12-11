@@ -1,6 +1,11 @@
 
+const he = require("he");
+
 export default function QuestionBlock(props) {
+
     return(
-        <h2>{props.data.question}</h2>
+        <div>
+        <h2>{he.decode(props.data.question)}</h2>
+        </div>
     )
 }

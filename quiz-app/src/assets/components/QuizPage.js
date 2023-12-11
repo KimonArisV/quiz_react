@@ -40,7 +40,7 @@ export default function QuizPage(props) {
         <div>
             {questionList}
             <button className="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>
-                {isAnswersVisible ? "Check Answers" : "Play Again"}
+                {!isAnswersVisible ? "Check Answers" : "Play Again"}
             </button>
         </div>
     )
