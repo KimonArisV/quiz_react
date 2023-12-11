@@ -1,16 +1,30 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import QuestionBolck from "./Question";
 import {nanoid} from "nanoid";
 
 export default function QuizPage() {
 
-    const [questionList, setquestionList] = useState( Array(5).fill().map(() => <QuestionBolck key={nanoid()} />) );
+    //function for the creation of components fo answers:
+    const createQuestionComponent = () => <QuestionBolck key={nanoid()} />;
+    const CreateQuestions = () => Array(5).fill().map(createQuestionComponent);
+    const [questionList, setquestionList] = useState( CreateQuestions );
     const [isAnswersVisible, setisAnswersVisible] = useState(false);
+
+    useEffect(
+        ()=>{
+            if(!isAnswersVisible){
+                setquestionList( CreateQuestions );
+            };
+            },
+        [isAnswersVisible]
+        );
 
     return(
         <div>
             {questionList}
-            <button>?Check Answers:Play Again</button>
+            <button id="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>
+                {isAnswersVisible ? "Check Answers" : "Play Again"}
+            </button>
         </div>
     )
 }
