@@ -76,7 +76,7 @@ Quiz created on React using Create-React-App.
 ---
 # Lessions I embrace throughout creating the app:<br>
 
-- We use **useState()** for a variable instead of let when we want the component to re-render if the variable changes. otherwise we will change the variable but the component will not re-render. Think of cases where you want to use && to allow a compeont to render on the page or not. Use **useState()**. <br>
+- We use **useState()** for a variable instead of let when we want the component to re-render if the variable changes. otherwise we will change the variable but the component will not re-render. Think of cases where you want to use && to allow a compeont to render on the page or not. If let is used changes to the value fo the variable will not trigger re-render of the component in contract with **useState()**. <br>
 - 
 
 
