@@ -1,4 +1,4 @@
-# Quiz React App<br>:
+# Quiz React App:<br>
 Quiz created on React using Create-React-App. 
 
 # Step 0: check the yarn version:<br>
@@ -6,7 +6,7 @@ Quiz created on React using Create-React-App.
 
 
 # Step 1: If none is find you need to install it:<br>
-<code> yarn --version </code>
+<code> npm install --global yarn </code>
 
 # Step 2: Initialize a new project (This will generate a package.json file.):<br>
 <code> yarn init </code>
