@@ -5,14 +5,15 @@ import {nanoid} from "nanoid";
 export default function QuizPage() {
 
     //function for the creation of components fo answers:
-    const createQuestions = () => <QuestionBolck key={nanoid()} />;
-    const [questionList, setquestionList] = useState( Array(5).fill().map(createQuestions) );
+    const createQuestionComponent = () => <QuestionBolck key={nanoid()} />;
+    const CreateQuestions = () => Array(5).fill().map(createQuestionComponent);
+    const [questionList, setquestionList] = useState( CreateQuestions );
     const [isAnswersVisible, setisAnswersVisible] = useState(false);
 
     useEffect(
         ()=>{
             if(!isAnswersVisible){
-                setquestionList( Array(5).fill().map(() => <QuestionBolck key={nanoid()} />));
+                setquestionList( CreateQuestions );
             };
             },
         [isAnswersVisible]
