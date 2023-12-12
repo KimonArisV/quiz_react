@@ -19,7 +19,7 @@ export default function QuizPage() {
                 //fecting the data from the API
                 fetch("https://opentdb.com/api.php?amount=5&type=multiple")
                 .then( response => response.json())
-                .then( data => setquestionList(()=>Array(5).fill().map((_,id) => 
+                .then( data => setquestionList(Array(5).fill().map((_,id) => 
                     <QuestionBlock 
                         key={nanoid()} 
                         id={id} 
