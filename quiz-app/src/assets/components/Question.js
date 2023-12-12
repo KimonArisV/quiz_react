@@ -35,17 +35,9 @@ export default function QuestionBlock(props) {
             isHeldCheck={isHeldArray[id]} 
             changeAnswer={()=>changeAnswer(id)}
             correctAnswer={props.data.correct_answer===element}
+            isAnswersVisible={props.isAnswersVisible}
+            setScore={props.setScore}
         />
-    );
-    //create a score checker: with useEffect to only run the score calculation at the end
-    useEffect(
-        ()=>{
-            if(props.isAnswersVisible){
-                props.setScore();
-                console.log("hello");
-            };
-        },
-        [props.isAnswersVisible]
     );
     
     return(

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 
 export default function Choise(props){
     //create a style for the choises so that the color changes when they get selected
@@ -10,6 +11,17 @@ export default function Choise(props){
         cursor: "pointer",
         transition: "background-color 0.3s ease",
       };
+
+    //create a score checker: with useEffect to only run the score calculation at the end
+    useEffect(
+        ()=>{
+            if(props.isAnswersVisible && props.correctAnswer && props.isHeldCheck){
+                props.setScore();
+                console.log("hello");
+            };
+        },
+        [props.isAnswersVisible]
+    );
 
     return(
         // on click we call the function that will change which choise is selected 
