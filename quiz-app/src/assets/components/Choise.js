@@ -1,9 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Choise(props){
     //create a style for the choises so that the color changes when they get selected
+    // const colorButton = () =>{
+    //     //const newColor  ="" ;
+    //     if (props.isHeldCheck && props.correctAnswer){
+    //         return "green";
+    //     }else if (props.isHeldCheck){
+    //         return "red";
+    //     }else if (props.correctAnswer){
+    //         return "green";
+    //     };
+    //     return "white";
+    // }
+    const [colorButton,setColorButton] = useState(props.isHeldCheck ? "#808080" : "white");
+
     const buttonStyle = {
-        backgroundColor: props.isHeldCheck ? "#808080" : "white", // Change to gray if isHeld is true
+        backgroundColor: colorButton,
         color: "#000000", // Text color
         padding: "10px",
         border: "1px solid #000000",
@@ -19,6 +32,18 @@ export default function Choise(props){
                 props.setScore();
                 console.log("hello");
             };
+            //const colorButton = () =>{
+                //const newColor  ="" ;
+            if(props.isAnswersVisible){
+                if (props.isHeldCheck && props.correctAnswer){
+                    setColorButton("green");
+                }else if (props.isHeldCheck){
+                    setColorButton("red");
+                }else if (props.correctAnswer){
+                    setColorButton("green");
+                };
+            };
+            //}
         },
         [props.isAnswersVisible]
     );
@@ -26,7 +51,7 @@ export default function Choise(props){
     return(
         // on click we call the function that will change which choise is selected 
         // in the parent component
-        <button className="buttonChoices" onClick={props.changeAnswer} style={buttonStyle}>
+        <button className="buttonChoices" onClick={props.changeAnswer} style={{...buttonStyle, backgroundColor: colorButton}}>
             {props.oneMutliChoisesData}
             </button>
     )

@@ -2,7 +2,8 @@ import {useState, useEffect} from "react";
 import QuestionBlock from "./Question";
 import {nanoid} from "nanoid";
 
-export default function QuizPage(props) {
+// export default function QuizPage(props){
+export default function QuizPage() {
 
     //state hook for the list of questions we will get from fetching the api
     const [questionList, setquestionList] = useState([]);
@@ -29,8 +30,10 @@ export default function QuizPage(props) {
                 //reseting score in every new game
                 setScore(0);
             };
+        console.log("i am entering");
         },
-        [props.startGame,isAnswersVisible]
+        // [props.startGame,isAnswersVisible]
+        [isAnswersVisible]
         );
 
     return(

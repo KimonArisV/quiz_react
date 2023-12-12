@@ -26,7 +26,7 @@ export default function QuestionBlock(props) {
         const allPossibleAnswersDecoded = allPossibleAnswers.map(element=>he.decode(element));
         setShuffledArray( _.shuffle(allPossibleAnswersDecoded));
     }
-    ,[props.data.correct_answer,props.data.incorrect_answers])
+    ,[props.data.correct_answer, props.data.incorrect_answers])
     //create another func that will produce the Choise compents with .map()
     const choisesArray = shuffledArray.map((element,id)=> 
         < Choise 

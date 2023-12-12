@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="App">
       <div id="first-page-container">
-        {!startGame ? <StarterPage SetStartGame={()=>setstartGame(true)} /> : <QuizPage startGame={startGame} />}
+        {!startGame ? <StarterPage SetStartGame={()=>setstartGame(true)} /> : <QuizPage  />}
+        {/* the below was not needed inside the QuizPage component */}
+         {/* startGame={startGame} />} */}
       </div>
     </div>
   );
