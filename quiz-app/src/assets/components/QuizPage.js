@@ -23,23 +23,25 @@ export default function QuizPage(props) {
                         key={nanoid()} 
                         id={id} 
                         data={data.results[id]}
+                        isAnswersVisible={()=>isAnswersVisible}
+                        setScore={()=>setScore(prevScore=>prevScore+1)}
                     /> )));
                 //reseting score in every new game
                 setScore(0);
             };
-            },
+        },
         [props.startGame,isAnswersVisible]
         );
 
     return(
         <div id="game-container">
-            //these will be the questions and choises
+            {/* these will be the questions and choises */}
             {questionList}
-            //this will be the button to check and restart
+            {/* this will be the button to check and restart */}
             <button className="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>
                 {!isAnswersVisible ? "Check Answers" : "Play Again"}
             </button>
-            //this will show your score every time
+            {/* this will show your score every time */}
             {isAnswersVisible && <p>You scored {score}/5</p>}
         </div>
     )
