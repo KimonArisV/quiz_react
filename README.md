@@ -79,5 +79,6 @@ Quiz created on React using Create-React-App.
 - We use **useState()** for a variable instead of let when we want the component to re-render if the variable changes. otherwise we will change the variable but the component will not re-render. Think of cases where you want to use && to allow a compeont to render on the page or not. If let is used changes to the value fo the variable will not trigger re-render of the component in contract with **useState()**. <br>
 - When you want to use ternary to display two different contents its best to make each of them a separate component and inserted it into that component. <br>
 - When you want to pass a variable that will be changing and it will affect other parts of your design as it changes, you want to pass the property to the child component as an anonymous function. oherwise it will not re-render the related components when the value changes and it will not propagate it(caching). <br>
+- When you pass a state variable from a parent component to a child component as a prop, the child component receives the initial value of the state variable. If the state variable in the parent component changes, it triggers a re-render of the parent component, and the updated value is then passed down to the child component as a new prop. <br>
 
 
