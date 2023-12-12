@@ -1,6 +1,6 @@
 
 export default function Choise(props){
-
+    //create a style for the choises so that the color changes when they get selected
     const buttonStyle = {
         backgroundColor: props.isHeldCheck ? "#808080" : "white", // Change to gray if isHeld is true
         color: "#000000", // Text color
@@ -11,8 +11,9 @@ export default function Choise(props){
         transition: "background-color 0.3s ease",
       };
 
-      console.log(props.correctAnswer);
     return(
+        //on click we call the function that will change which choise is selected 
+        //in the parent component
         <button className="buttonChoices" onClick={props.changeAnswer} style={buttonStyle}>
             {props.oneMutliChoisesData}
             </button>
