@@ -11,7 +11,7 @@ export default function Choise(props){
         transition: "background-color 0.3s ease",
       };
 
-      console.log(props.isHeldCheck);
+      console.log(props.correctAnswer);
     return(
         <button className="buttonChoices" onClick={props.changeAnswer} style={buttonStyle}>
             {props.oneMutliChoisesData}

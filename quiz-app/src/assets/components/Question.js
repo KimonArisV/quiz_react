@@ -12,7 +12,7 @@ export default function QuestionBlock(props) {
     const changeAnswer = id=> {
         const newIsHeldArray = [false,false,false,false];
         newIsHeldArray[id]=true;
-        console.log(newIsHeldArray);
+        //console.log(newIsHeldArray);
         setIsHeldArray(newIsHeldArray);
         // return (newIsHeldArray)
     };
@@ -30,6 +30,7 @@ export default function QuestionBlock(props) {
             oneMutliChoisesData={element} 
             isHeldCheck={isHeldArray[id]} 
             changeAnswer={()=>changeAnswer(id)}
+            correctAnswer={props.data.correct_answer===element}
         />
     );
 
