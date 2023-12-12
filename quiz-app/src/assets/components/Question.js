@@ -37,7 +37,17 @@ export default function QuestionBlock(props) {
             correctAnswer={props.data.correct_answer===element}
         />
     );
-
+    //create a score checker: with useEffect to only run the score calculation at the end
+    useEffect(
+        ()=>{
+            if(props.isAnswersVisible){
+                props.setScore();
+                console.log("hello");
+            };
+        },
+        [props.isAnswersVisible]
+    );
+    
     return(
         <div >
             {/* render the question */}
