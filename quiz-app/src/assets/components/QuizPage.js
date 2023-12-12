@@ -24,13 +24,12 @@ export default function QuizPage() {
                         key={nanoid()} 
                         id={id} 
                         data={data.results[id]}
-                        isAnswersVisible={()=>isAnswersVisible}
+                        isAnswersVisible={isAnswersVisible}
                         setScore={()=>setScore(prevScore=>prevScore+1)}
                     /> )));
                 //reseting score in every new game
                 setScore(0);
             };
-        console.log("i am entering");
         },
         // [props.startGame,isAnswersVisible]
         [isAnswersVisible]
