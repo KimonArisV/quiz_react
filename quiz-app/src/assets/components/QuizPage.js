@@ -17,7 +17,7 @@ export default function QuizPage(props) {
     //     };
     const [questionList, setquestionList] = useState([]);
     const [isAnswersVisible, setisAnswersVisible] = useState(false);
-
+    const [score, setScore]=useState(0);
     //console.log(questionList);
     useEffect(
         ()=>{
@@ -42,6 +42,7 @@ export default function QuizPage(props) {
             <button className="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>
                 {!isAnswersVisible ? "Check Answers" : "Play Again"}
             </button>
+            {isAnswersVisible && <p>You scored {score}/5</p>}
         </div>
     )
 }
