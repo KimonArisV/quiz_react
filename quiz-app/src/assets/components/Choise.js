@@ -12,8 +12,8 @@ export default function Choise(props){
       };
 
     return(
-        //on click we call the function that will change which choise is selected 
-        //in the parent component
+        // on click we call the function that will change which choise is selected 
+        // in the parent component
         <button className="buttonChoices" onClick={props.changeAnswer} style={buttonStyle}>
             {props.oneMutliChoisesData}
             </button>

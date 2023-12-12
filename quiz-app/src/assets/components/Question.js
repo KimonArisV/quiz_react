@@ -40,9 +40,9 @@ export default function QuestionBlock(props) {
 
     return(
         <div >
-            //render the question
+            {/* render the question */}
             <p className="question"> {he.decode(props.data.question)} </p>
-            //render the choises
+            {/* render the choises */}
             <div id="multipleChoise">
                 {choisesArray}
             </div>
