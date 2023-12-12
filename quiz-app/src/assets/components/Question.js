@@ -38,7 +38,7 @@ export default function QuestionBlock(props) {
     //const ChoisesArray = < Choises mutliChoisesData={props.} />; 
     //console.log(shuffledArray)
     return(
-        <div>
+        <div >
             <p className="question"> {he.decode(props.data.question)} </p>
             <div id="multipleChoise">
                 {choisesArray}

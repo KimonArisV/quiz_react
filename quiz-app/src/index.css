@@ -131,3 +131,13 @@ code {
   color: #fff; /* Change text color when clicked */
 }
 
+/* add more space between questions and button */
+#game-container{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
