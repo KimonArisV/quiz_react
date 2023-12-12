@@ -2,7 +2,7 @@
 export default function Choise(props){
 
     const buttonStyle = {
-        backgroundColor: props.isHeldCheck ? "#808080" : "green", // Change to gray if isHeld is true
+        backgroundColor: props.isHeldCheck ? "#808080" : "white", // Change to gray if isHeld is true
         color: "#000000", // Text color
         padding: "10px",
         border: "1px solid #000000",
