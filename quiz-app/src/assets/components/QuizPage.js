@@ -2,7 +2,8 @@ import {useState, useEffect} from "react";
 import QuestionBlock from "./Question";
 import {nanoid} from "nanoid";
 
-export default function QuizPage(props) {
+// export default function QuizPage(props){
+export default function QuizPage() {
 
     //state hook for the list of questions we will get from fetching the api
     const [questionList, setquestionList] = useState([]);
@@ -18,19 +19,20 @@ export default function QuizPage(props) {
                 //fecting the data from the API
                 fetch("https://opentdb.com/api.php?amount=5&type=multiple")
                 .then( response => response.json())
-                .then( data => setquestionList(()=>Array(5).fill().map((_,id) => 
+                .then( data => setquestionList(Array(5).fill().map((_,id) => 
                     <QuestionBlock 
                         key={nanoid()} 
                         id={id} 
                         data={data.results[id]}
-                        isAnswersVisible={()=>isAnswersVisible}
+                        isAnswersVisible={isAnswersVisible}
                         setScore={()=>setScore(prevScore=>prevScore+1)}
                     /> )));
                 //reseting score in every new game
                 setScore(0);
             };
         },
-        [props.startGame,isAnswersVisible]
+        // [props.startGame,isAnswersVisible]
+        [isAnswersVisible]
         );
 
     return(
