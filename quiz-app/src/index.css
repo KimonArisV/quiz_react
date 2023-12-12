@@ -139,5 +139,5 @@ code {
   width: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
