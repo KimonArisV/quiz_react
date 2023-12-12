@@ -2,7 +2,7 @@
 export default function Choise(props){
 
     const buttonStyle = {
-        backgroundColor: props.isHeldCheck ? "#808080" : "green", // Change to gray if isHeld is true
+        backgroundColor: props.isHeldCheck ? "#808080" : "white", // Change to gray if isHeld is true
         color: "#000000", // Text color
         padding: "10px",
         border: "1px solid #000000",
@@ -11,7 +11,7 @@ export default function Choise(props){
         transition: "background-color 0.3s ease",
       };
 
-      console.log(props.isHeldCheck);
+      console.log(props.correctAnswer);
     return(
         <button className="buttonChoices" onClick={props.changeAnswer} style={buttonStyle}>
             {props.oneMutliChoisesData}
