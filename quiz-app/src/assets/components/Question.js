@@ -39,7 +39,7 @@ export default function QuestionBlock(props) {
             setScore={props.setScore}
         />
     );
-    
+    console.log(props.isAnswersVisible)
     return(
         <div >
             {/* render the question */}
