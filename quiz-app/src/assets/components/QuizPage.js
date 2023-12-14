@@ -2,70 +2,74 @@ import {useState, useEffect} from "react";
 import QuestionBlock from "./Question";
 import {nanoid} from "nanoid";
 
+//initialize the shuffler
+const _ = require('lodash');
+
 // export default function QuizPage(props){
 export default function QuizPage() {
 
     //state hook for the list of questions we will get from fetching the api
     const [questionList, setquestionList] = useState([]);
     // needed to know when to refetch and when we already show the answers
-    const [isAnswersVisible, setisAnswersVisible] = useState(false);
+    const [isAnswersVisible, setIsAnswersVisible] = useState(false);
+    const [startNewGame, setStartNewGame] = useState(false);
     //needed to keep track of the players score
     const [score, setScore]=useState(0);
     //lets create a hook for the data used to create the questionlist
     const [fecthDataList, setFecthDataList] = useState([]);
 
-    // lets create a function to map the data.results in the right format 
-    //and remove the comonent from in the useEffect
-    //const formatMyData = (MyDataArray)=> MyDataArray.map((element,id)=> (element.results[id]) );
-    const formatMyData = (MyDataArray)=> Array(5).fill().map((_,id)=>MyDataArray.results[id]);
-    //(MyDataArray.results) );
     //making sure it only fectes data when we start a new game
-    useEffect(
-        ()=>{
-            if(!isAnswersVisible){
+    useEffect(()=>{
                 //fecting the data from the API
                 fetch("https://opentdb.com/api.php?amount=5&type=multiple")
                 .then( response => response.json())
-                .then( data => setFecthDataList(formatMyData(data)));
-                    // setquestionList(Array(5).fill().map((_,id) => 
-                    // <QuestionBlock 
-                    //     key={nanoid()} 
-                    //     id={id} 
-                    //     data={data.results[id]}
-                    //     isAnswersVisible={isAnswersVisible}
-                    //     setScore={()=>setScore(prevScore=>prevScore+1)}
-                    // /> )));
+                .then( data => setFecthDataList(formatMyData(data.results)));
                 //reseting score in every new game
                 setScore(0);
-            };
-        setquestionList(fecthDataList.map((element,id)=> <QuestionBlock 
-                                    key={nanoid()} 
-                                    id={id} 
-                                    data={element} 
-                                    isAnswersVisible={isAnswersVisible}
-                                    setScore={()=>setScore(prevScore=>prevScore+1)} />))
-        },
-        // [props.startGame,isAnswersVisible]
-        [isAnswersVisible]
+            },
+        [startNewGame]
         );
-
-        // setquestionList(Array(5).fill().map((_,id) => 
-        // <QuestionBlock 
-        //     key={nanoid()} 
-        //     id={id} 
-        //     data={data.results[id]}
-        //     isAnswersVisible={isAnswersVisible}
-        //     setScore={()=>setScore(prevScore=>prevScore+1)}
-        // /> ));
-        //console.log(questionList)
+        
+    function formatMyData(dataArray) {
+        let formattedData = dataArray.map((item) => {
+            return {
+            question:item.question,
+            correct_answer: item.correct_answer,
+            answers: _.shuffle([...item.incorrect_answers, item.correct_answer]),
+            //score: 0,
+            };
+        });
+        return formattedData;
+    }     
+ 
+    let Questions = fecthDataList.map((item,id)=>(
+        <QuestionBlock 
+            { ...item}
+            key={nanoid()} 
+            id={id} 
+            isAnswersVisible={isAnswersVisible}
+            startNewGame={startNewGame}
+            setScore={()=>setScore(prevScore=>prevScore+1)}
+        /> 
+        )
+    );
+    console.log(Questions)
     return(
         <div id="game-container">
             {/* these will be the questions and choises */}
-            {questionList}
+            {Questions}
             {/* this will be the button to check and restart */}
-            <button className="CheckAnswerButton" onClick={()=>setisAnswersVisible(prevState=>!prevState)}>
-                {!isAnswersVisible ? "Check Answers" : "Play Again"}
-            </button>
+            {isAnswersVisible ?(
+                <button className="CheckAnswerButton" onClick={()=>{
+                    setStartNewGame(prevState => !prevState);
+                    setIsAnswersVisible(prevState => !prevState);} }>
+                Play Again
+                </button>) : (
+                <button className="CheckAnswerButton" onClick={()=>setIsAnswersVisible(prevState=>!prevState)}>
+                Check Answers
+                </button> 
+                )
+            }
             {/* this will show your score every time */}
             {isAnswersVisible && <p>You scored {score}/5</p>}
         </div>

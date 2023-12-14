@@ -21,29 +21,22 @@ export default function QuestionBlock(props) {
     };
     //create a hook to make sure the re-shuffling happens only when answers change
     //therefore only when the game re-starts
-    useEffect(()=>{
-        const allPossibleAnswers = [props.data.correct_answer, ...props.data.incorrect_answers];
-        const allPossibleAnswersDecoded = allPossibleAnswers.map(element=>he.decode(element));
-        setShuffledArray( _.shuffle(allPossibleAnswersDecoded));
-    }
-    ,[props.data.correct_answer, props.data.incorrect_answers])
-    //create another func that will produce the Choise compents with .map()
-    const choisesArray = shuffledArray.map((element,id)=> 
+    const choisesArray = props.answers.map((element,id)=> 
         < Choise 
             key={nanoid()} 
             oneMutliChoisesData={element} 
             isHeldCheck={isHeldArray[id]} 
             changeAnswer={()=>changeAnswer(id)}
-            correctAnswer={props.data.correct_answer===element}
+            correctAnswer={props.correct_answer===element}
             isAnswersVisible={props.isAnswersVisible}
             setScore={props.setScore}
         />
     );
-    console.log(props.isAnswersVisible)
+    
     return(
         <div >
             {/* render the question */}
-            <p className="question"> {he.decode(props.data.question)} </p>
+            <p className="question"> {he.decode(props.question)} </p>
             {/* render the choises */}
             <div id="multipleChoise">
                 {choisesArray}
